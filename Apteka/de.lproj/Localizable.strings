@@ -1,0 +1,9 @@
+"welcome.message" = "Willkommen, %@!";
+"logout.button" = "Abmelden";
+"detail.composition" = "Zusammensetzung";
+"detail.price" = "Preis";
+"login.title" = "Willkommen in der Apotheke";
+"login.username" = "Benutzername";
+"login.password" = "Passwort";
+"login.button" = "Anmelden";
+"login.error.empty" = "Bitte füllen Sie alle Felder aus";

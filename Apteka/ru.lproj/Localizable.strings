@@ -1,0 +1,9 @@
+"welcome.message" = "Добро пожаловать, %@!";
+"logout.button" = "Выйти";
+"detail.composition" = "Состав";
+"detail.price" = "Цена";
+"login.title" = "Добро пожаловать в Аптеку";
+"login.username" = "Имя пользователя";
+"login.password" = "Пароль";
+"login.button" = "Войти";
+"login.error.empty" = "Заполните все поля";

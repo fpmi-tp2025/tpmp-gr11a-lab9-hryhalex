@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+        <key>id</key>
+        <integer>1</integer>
+        <key>name</key>
+        <string>Ибупрофен</string>
+        <key>description</key>
+        <string>Противовоспалительное средство</string>
+        <key>composition</key>
+        <string>Ибупрофен 200 мг</string>
+        <key>imageName</key>
+        <string>medicine1</string>
+        <key>price</key>
+        <real>150.0</real>
+    </dict>
+    <dict>
+        <key>id</key>
+        <integer>2</integer>
+        <key>name</key>
+        <string>Парацетамол</string>
+        <key>description</key>
+        <string>Жаропонижающее средство</string>
+        <key>composition</key>
+        <string>Парацетамол 500 мг</string>
+        <key>imageName</key>
+        <string>medicine2</string>
+        <key>price</key>
+        <real>120.0</real>
+    </dict>
+    <dict>
+        <key>id</key>
+        <integer>3</integer>
+        <key>name</key>
+        <string>Аспирин</string>
+        <key>description</key>
+        <string>Разжижает кровь</string>
+        <key>composition</key>
+        <string>Ацетилсалициловая кислота 100 мг</string>
+        <key>imageName</key>
+        <string>medicine3</string>
+        <key>price</key>
+        <real>80.0</real>
+    </dict>
+</array>
+</plist>
