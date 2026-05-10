@@ -2,7 +2,6 @@ import UIKit
 
 class MedicinesViewController: UIViewController {
     
-    // Убираем @IBOutlet - создадим все программно
     var collectionView: UICollectionView!
     var welcomeLabel: UILabel!
     
@@ -18,6 +17,10 @@ class MedicinesViewController: UIViewController {
         setupCollectionView()
         loadData()
         setupNavigationButtons()
+        
+        // Для UI-тестов
+        collectionView.accessibilityIdentifier = "medicinesCollectionView"
+        welcomeLabel.accessibilityIdentifier = "welcomeLabel"
     }
     
     private func setupWelcomeLabel() {
@@ -35,7 +38,6 @@ class MedicinesViewController: UIViewController {
         
         view.addSubview(welcomeLabel)
         
-        // Констрейнты
         NSLayoutConstraint.activate([
             welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -59,12 +61,10 @@ class MedicinesViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        // Регистрируем ячейку
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MedicineCell")
         
         view.addSubview(collectionView)
         
-        // Констрейнты
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 20),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -74,7 +74,6 @@ class MedicinesViewController: UIViewController {
     }
     
     private func setupNavigationButtons() {
-        // Кнопка "Выйти"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Выйти",
             style: .plain,
@@ -82,7 +81,6 @@ class MedicinesViewController: UIViewController {
             action: #selector(logoutTapped)
         )
         
-        // Кнопка "Назад"
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "Назад",
             style: .plain,
@@ -93,7 +91,6 @@ class MedicinesViewController: UIViewController {
     
     private func loadData() {
         medicines = DataManager.shared.loadMedicinesFromPlist()
-        print("✅ Загружено лекарств: \(medicines.count)")
         collectionView.reloadData()
     }
     
@@ -117,18 +114,10 @@ extension MedicinesViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MedicineCell", for: indexPath)
         let medicine = medicines[indexPath.row]
         
-        // Очищаем ячейку от старых элементов
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
-        
-        // Настраиваем внешний вид ячейки
         cell.backgroundColor = .systemGray6
         cell.layer.cornerRadius = 12
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
-        cell.layer.shadowOpacity = 0.1
-        cell.layer.shadowRadius = 4
         
-        // Название лекарства
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.text = medicine.name
@@ -137,7 +126,6 @@ extension MedicinesViewController: UICollectionViewDelegate, UICollectionViewDat
         nameLabel.numberOfLines = 0
         cell.contentView.addSubview(nameLabel)
         
-        // Цена
         let priceLabel = UILabel()
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.text = "\(medicine.price) ₽"
@@ -146,26 +134,28 @@ extension MedicinesViewController: UICollectionViewDelegate, UICollectionViewDat
         priceLabel.textColor = .systemGreen
         cell.contentView.addSubview(priceLabel)
         
-        // Иконка (системная иконка таблетки)
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "pill")
-        imageView.tintColor = .systemBlue
+        if let medicineImage = medicine.image {
+            imageView.image = medicineImage
+        } else {
+            imageView.image = UIImage(systemName: "pill")
+            imageView.tintColor = .systemBlue
+        }
         imageView.contentMode = .scaleAspectFit
         cell.contentView.addSubview(imageView)
         
-        // Констрейнты
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 12),
             imageView.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 60),
-            imageView.heightAnchor.constraint(equalToConstant: 60),
+            imageView.widthAnchor.constraint(equalToConstant: 80),
+            imageView.heightAnchor.constraint(equalToConstant: 80),
             
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
             nameLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 8),
             nameLabel.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -8),
             
-            priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
             priceLabel.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
             priceLabel.bottomAnchor.constraint(lessThanOrEqualTo: cell.contentView.bottomAnchor, constant: -12)
         ])
@@ -175,7 +165,6 @@ extension MedicinesViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let medicine = medicines[indexPath.row]
-        
         let alert = UIAlertController(
             title: medicine.name,
             message: "Описание: \(medicine.description)\n\nСостав: \(medicine.composition)\n\nЦена: \(medicine.price) ₽",
@@ -183,8 +172,6 @@ extension MedicinesViewController: UICollectionViewDelegate, UICollectionViewDat
         )
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
-        
-        // Снимаем выделение
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

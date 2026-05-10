@@ -1,7 +1,4 @@
-# Лабораторная работа №9
-
-## Тема
-Тестирование iOS приложений с использованием XCTest
+# Лабораторная работа №9 — Тестирование iOS приложений
 
 ## Студент
 Григорьева Александра, группа 11А
@@ -9,36 +6,59 @@
 ## Приложение
 **"Аптека"** — iOS приложение для просмотра лекарств с авторизацией.
 
-## Ссылки
-- [Отчет](docs/Лаб_9_Григорьева_Александра.docx)
-- [Test Plan](docs/TestPlan.md)
-
-## Структура репозитория ├── Apteka/ # Исходный код приложения
-│ ├── Model/ # Модели данных
-│ ├── Controller/ # Контроллеры
-│ ├── View/ # View и Storyboard
-│ └── AptekaTests/ # Unit-тесты (XCTest)
-├── docs/
-│ ├── Лаб_9_Григорьева_Александра.docx # Отчет
-│ └── TestPlan.md # План тестирования
-└── screenshots/ # Скриншоты для отчета
-
-
 ## Тестирование
-- **Фреймворк:** XCTest
-- **Unit-тесты:** 4 теста, все пройдены ✅
-- **UI-тесты:** Ручное тестирование (7 сценариев) ✅
 
-## Результаты тестов
-| Тест | Результат |
-|------|-----------|
-| testExample | ✅ PASS |
-| testDataManagerExists | ✅ PASS |
-| testSaveLoginState | ✅ PASS |
-| testLogout | ✅ PASS |
+### Фреймворк
+**XCTest** — выбран для UIKit-приложения
 
-## Как запустить
-1. Открыть `Apteka.xcodeproj` в Xcode
-2. Выбрать симулятор
-3. `Cmd + R` — запуск приложения
-4. `Cmd + U` — запуск тестов
+### Результаты тестов
+
+| Тип тестов | Кол-во | Пройдено | Результат |
+|------------|--------|----------|-----------|
+| Unit Tests | 10 | 10 | ✅ 100% |
+| UI Tests | 10 | 10 | ✅ 100% |
+| **Итого** | **20** | **20** | **✅ 100%** |
+
+### Unit Tests (10 тестов)
+- testExample ✅
+- testDataManagerExists ✅
+- testSaveLoginState ✅
+- testLogout ✅
+- testLoadMedicinesFromPlist ✅
+- testMedicineNames ✅
+- testMedicinePrices ✅
+- testMedicineImagesExist ✅
+- testMedicineModel ✅
+- testOverwriteLoginState ✅
+
+### UI Tests (10 тестов)
+- testLoginScreenExists ✅
+- testSuccessfulLogin ✅
+- testLoginWithEmptyUsername ✅
+- testLoginWithEmptyPassword ✅
+- testLoginWithShortPassword ✅
+- testCollectionViewCellsCount ✅
+- testCollectionViewIsNotEmpty ✅
+- testLogoutButtonExists ✅
+- testWelcomeLabelExists ✅
+- testCollectionViewScrollable ✅
+
+## Запуск тестов
+```bash
+# В Xcode
+Cmd + U
+
+# В терминале
+xcodebuild test -project Apteka.xcodeproj -scheme Apteka -destination 'platform=iOS Simulator,name=iPhone 15 Pro'Структура
+text
+├── Apteka/              # Исходный код приложения
+│   ├── Model/          # Модели данных
+│   ├── Controller/     # Контроллеры
+│   ├── View/           # View и Storyboard
+│   ├── AptekaTests/    # Unit-тесты (10)
+│   └── AptekaUITests/  # UI-тесты (10)
+├── docs/               # Документация
+├── screenshots/        # Скриншоты
+└── README.md
+Ссылка на отчет
+Отчет

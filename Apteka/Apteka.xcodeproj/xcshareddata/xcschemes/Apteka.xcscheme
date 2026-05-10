@@ -51,7 +51,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9552395A2FA1068700FF6496"
+               BlueprintIdentifier = "95102FAE2FB0B4A1001D4451"
                BuildableName = "AptekaUITests.xctest"
                BlueprintName = "AptekaUITests"
                ReferencedContainer = "container:Apteka.xcodeproj">

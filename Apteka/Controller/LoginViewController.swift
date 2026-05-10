@@ -11,6 +11,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
+        // Для UI-тестов
+        usernameTextField.accessibilityIdentifier = "usernameTextField"
+        passwordTextField.accessibilityIdentifier = "passwordTextField"
+        loginButton.accessibilityIdentifier = "loginButton"
+        
         // Проверяем, не авторизован ли уже пользователь
         if DataManager.shared.isUserLoggedIn() {
             navigateToMedicines()
@@ -19,18 +24,11 @@ class LoginViewController: UIViewController {
     
     private func setupUI() {
         loginButton.layer.cornerRadius = 10
-        usernameTextField.placeholder = NSLocalizedString("login.username", comment: "")
-        passwordTextField.placeholder = NSLocalizedString("login.password", comment: "")
-        titleLabel.text = NSLocalizedString("login.title", comment: "")
-        loginButton.setTitle(NSLocalizedString("login.button", comment: ""), for: .normal)
-    }
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: NSLocalizedString("login.error", comment: ""),
-                                     message: message,
-                                     preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+        usernameTextField.placeholder = "Имя пользователя"
+        passwordTextField.placeholder = "Пароль"
+        passwordTextField.isSecureTextEntry = true
+        titleLabel.text = "Добро пожаловать в Аптеку"
+        loginButton.setTitle("Войти", for: .normal)
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -40,7 +38,6 @@ class LoginViewController: UIViewController {
             return
         }
         
-        // Простая валидация (пароль минимум 3 символа)
         if password.count >= 3 {
             DataManager.shared.saveLoginState(isLoggedIn: true, username: username)
             navigateToMedicines()
@@ -51,9 +48,15 @@ class LoginViewController: UIViewController {
     
     private func navigateToMedicines() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let medicinesVC = storyboard.instantiateViewController(withIdentifier: "MedicinesViewController")
-        medicinesVC.modalPresentationStyle = .fullScreen
-        present(medicinesVC, animated: true)
+        let medicinesVC = MedicinesViewController()
+        let navigationController = UINavigationController(rootViewController: medicinesVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
     }
     
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
 }

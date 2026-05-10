@@ -12,7 +12,20 @@
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [
-
+    {
+      "target" : {
+        "containerPath" : "container:Apteka.xcodeproj",
+        "identifier" : "9552394D2FA1066E00FF6496",
+        "name" : "AptekaTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Apteka.xcodeproj",
+        "identifier" : "95102FAE2FB0B4A1001D4451",
+        "name" : "AptekaUITests"
+      }
+    }
   ],
   "version" : 1
 }

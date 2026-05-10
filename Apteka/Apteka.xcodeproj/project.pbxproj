@@ -18,6 +18,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		95102FB52FB0B4A1001D4451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9536D1372F9F5B0F00560B6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9536D13E2F9F5B0F00560B6E;
+			remoteInfo = Apteka;
+		};
 		955239522FA1066E00FF6496 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9536D1372F9F5B0F00560B6E /* Project object */;
@@ -28,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95102FAF2FB0B4A1001D4451 /* AptekaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AptekaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9536D13F2F9F5B0F00560B6E /* Apteka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apteka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9536D15D2F9F5B5000560B6E /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
 		9536D15F2F9F5B5F00560B6E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -53,6 +61,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		95102FB02FB0B4A1001D4451 /* AptekaUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AptekaUITests;
+			sourceTree = "<group>";
+		};
 		9536D1412F9F5B0F00560B6E /* Apteka */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -69,6 +82,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		95102FAC2FB0B4A1001D4451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9536D13C2F9F5B0F00560B6E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -96,6 +116,7 @@
 				9536D15A2F9F5B1900560B6E /* Model */,
 				9536D1412F9F5B0F00560B6E /* Apteka */,
 				9552394F2FA1066E00FF6496 /* AptekaTests */,
+				95102FB02FB0B4A1001D4451 /* AptekaUITests */,
 				9536D1402F9F5B0F00560B6E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +126,7 @@
 			children = (
 				9536D13F2F9F5B0F00560B6E /* Apteka.app */,
 				9552394E2FA1066E00FF6496 /* AptekaTests.xctest */,
+				95102FAF2FB0B4A1001D4451 /* AptekaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +161,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		95102FAE2FB0B4A1001D4451 /* AptekaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95102FB72FB0B4A1001D4451 /* Build configuration list for PBXNativeTarget "AptekaUITests" */;
+			buildPhases = (
+				95102FAB2FB0B4A1001D4451 /* Sources */,
+				95102FAC2FB0B4A1001D4451 /* Frameworks */,
+				95102FAD2FB0B4A1001D4451 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95102FB62FB0B4A1001D4451 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				95102FB02FB0B4A1001D4451 /* AptekaUITests */,
+			);
+			name = AptekaUITests;
+			packageProductDependencies = (
+			);
+			productName = AptekaUITests;
+			productReference = 95102FAF2FB0B4A1001D4451 /* AptekaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9536D13E2F9F5B0F00560B6E /* Apteka */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9536D1552F9F5B1000560B6E /* Build configuration list for PBXNativeTarget "Apteka" */;
@@ -194,6 +239,10 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
+					95102FAE2FB0B4A1001D4451 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 9536D13E2F9F5B0F00560B6E;
+					};
 					9536D13E2F9F5B0F00560B6E = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -221,11 +270,19 @@
 			targets = (
 				9536D13E2F9F5B0F00560B6E /* Apteka */,
 				9552394D2FA1066E00FF6496 /* AptekaTests */,
+				95102FAE2FB0B4A1001D4451 /* AptekaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		95102FAD2FB0B4A1001D4451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9536D13D2F9F5B0F00560B6E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +303,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		95102FAB2FB0B4A1001D4451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9536D13B2F9F5B0F00560B6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +332,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		95102FB62FB0B4A1001D4451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9536D13E2F9F5B0F00560B6E /* Apteka */;
+			targetProxy = 95102FB52FB0B4A1001D4451 /* PBXContainerItemProxy */;
+		};
 		955239532FA1066E00FF6496 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9536D13E2F9F5B0F00560B6E /* Apteka */;
@@ -289,6 +358,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		95102FB82FB0B4A1001D4451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hryhalex.AptekaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Apteka;
+			};
+			name = Debug;
+		};
+		95102FB92FB0B4A1001D4451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hryhalex.AptekaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Apteka;
+			};
+			name = Release;
+		};
 		9536D1562F9F5B1000560B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -515,6 +622,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		95102FB72FB0B4A1001D4451 /* Build configuration list for PBXNativeTarget "AptekaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95102FB82FB0B4A1001D4451 /* Debug */,
+				95102FB92FB0B4A1001D4451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9536D13A2F9F5B0F00560B6E /* Build configuration list for PBXProject "Apteka" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
